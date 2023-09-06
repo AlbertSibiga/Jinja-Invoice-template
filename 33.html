@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<style>
+		@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+		body {
+			font-family: 'Roboto', sans-serif;
+		}
+
+		#container {
+			max-width: 900px;
+			margin: auto;
+		}
+
+		#header {
+			margin-top: 20px;
+			color: white;
+			height: 100px;
+		}
+
+		p {
+			color: black;
+			margin: 10px 0px;
+			font-size: 12px;
+		}
+
+		#l-panel,
+		#r-panel {
+			width: 25%;
+		}
+
+		#r-panel {
+			background-color: #69a0dd;
+			padding: 20px;
+			border-radius: 30px;
+			color: white;
+		}
+
+		a {
+			text-decoration: none;
+		}
+
+		#invoice-items {
+			margin-top: 200px;
+		}
+
+		table {
+			border-collapse: collapse;
+			width: 100%;
+		}
+		td, th {
+			text-align: left;
+			padding: 8px;
+		}
+
+		td#item-table
+	    {
+			/* border: 1px solid #dddddd; */
+			text-align: left;
+			padding: 8px;
+			background-color: white;
+			border-bottom: solid 1px black;
+		}
+
+		th#item-table-header{
+			color: Red;
+			font-weight: bold;
+			background-color: #ffffff;
+			height: 35px;
+			border-bottom: solid 1px black;
+		}
+
+		tr#item-table:nth-child(even) {
+			background-color: #dddddd;
+		}
+
+
+		#total-panel {
+			margin-top: 200px;
+			display: flex;
+			justify-content: space-between;
+		}
+
+		#l-total,
+		#r-total {
+			width: 30%;
+		}
+
+		#sub-total {
+			display: flex;
+			justify-content: space-between;
+		}
+
+		#sub-total-total {
+			display: flex;
+			justify-content: space-between;
+			background-color: #3f4c68;
+			color: white;
+		}
+	</style>
+</head>
+
+<body>
+	<div id="container">
+		<div id="header" style="text-align: center;">
+			<svg style="margin: auto;" width="80px" height="80px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+				<path d="M12.75 15.9203H13.4C14.05 15.9203 14.59 15.3403 14.59 14.6403C14.59 13.7703 14.28 13.6003 13.77 13.4203L12.76 13.0703V15.9203H12.75Z" fill="#292D32"/>
+				<path d="M11.9701 1.89845C6.45007 1.91845 1.98007 6.40845 2.00007 11.9285C2.02007 17.4485 6.51007 21.9185 12.0301 21.8985C17.5501 21.8785 22.0201 17.3885 22.0001 11.8685C21.9801 6.34845 17.4901 1.88845 11.9701 1.89845ZM14.2601 11.9985C15.0401 12.2685 16.0901 12.8485 16.0901 14.6385C16.0901 16.1785 14.8801 17.4185 13.4001 17.4185H12.7501V17.9985C12.7501 18.4085 12.4101 18.7485 12.0001 18.7485C11.5901 18.7485 11.2501 18.4085 11.2501 17.9985V17.4185H10.8901C9.25007 17.4185 7.92007 16.0385 7.92007 14.3385C7.92007 13.9285 8.26007 13.5885 8.67007 13.5885C9.08007 13.5885 9.42007 13.9285 9.42007 14.3385C9.42007 15.2085 10.0801 15.9185 10.8901 15.9185H11.2501V12.5385L9.74007 11.9985C8.96007 11.7285 7.91007 11.1485 7.91007 9.35845C7.91007 7.81845 9.12007 6.57845 10.6001 6.57845H11.2501V5.99845C11.2501 5.58845 11.5901 5.24845 12.0001 5.24845C12.4101 5.24845 12.7501 5.58845 12.7501 5.99845V6.57845H13.1101C14.7501 6.57845 16.0801 7.95845 16.0801 9.65845C16.0801 10.0685 15.7401 10.4085 15.3301 10.4085C14.9201 10.4085 14.5801 10.0685 14.5801 9.65845C14.5801 8.78845 13.9201 8.07845 13.1101 8.07845H12.7501V11.4585L14.2601 11.9985Z" fill="#292D32"/>
+				<path d="M9.42188 9.36812C9.42188 10.2381 9.73187 10.4081 10.2419 10.5881L11.2519 10.9381V8.07812H10.6019C9.95188 8.07812 9.42188 8.65812 9.42188 9.36812Z" fill="#292D32"/>
+				</svg>
+		</div>
+		<div style="height: 5px; width: 100%; background-color: black;"></div>
+		<div style="height: 3px; width: 100%; background-color: gray; margin-top: 3px; margin-bottom: 10px;"></div>
+		<div style="width: 150px; float: left; border-right: rgb(33, 33, 33) solid; border-width: 2px; height: 150px; padding-right: 25px;">
+			<p style="font-size: 15px; font-weight: bold; margin: 5px 0px;">To</p>
+			<p>Jesica Jones</p>
+			<p>jesica.jones@example.exm</p>
+		</div>
+		<div style="width: 200px; float: left; margin-left: 30px;">
+			<p style="font-size: 15px; font-weight: bold; margin: 5px 0px;">From</p>
+			<p>Super widget industries</p>
+			<p style="margin-bottom: 15px;">widgetsuperstore.com</p>
+			<p>123 Mill St.</p>
+			<p>Main, AK 213546</p>
+			<p>United States</p>
+		</div>
+		<div style="width: 100px; float: left;">
+			<p style="font-size: 15px; font-weight: bold; margin: 5px 0px;">Details</p>
+			<p>Invoice number</p>
+			<p>Invoice Date</p>
+			<p>Balance Due</p>
+		</div>
+		<div style="width: 100px; float: left;">
+			<p style="font-size: 15px; font-weight: bold; margin: 5px 0px;">___ </p>
+			<p>0522</p>
+			<p>23-Aug-2023</p>
+			<p>$9,350.00</p>
+		</div>
+		<div id="invoice-items">
+			<table>
+				<tr id="item-table-header" >
+					<th id="item-table-header" style="text-align: center; border-top-left-radius:20px 20px;">Product</th>
+					<th id="item-table-header" style="text-align: center;">Price ($)</th>
+					<th id="item-table-header"  style="text-align: center;">Quantity</th>
+					<th id="item-table-header"  style="text-align: center; border-top-right-radius:20px 20px;">Amount</th>
+				</tr>
+				
+				<tr id="item-table" >
+					<td id="item-table" style="text-align: center;">item1</td>
+					<td id="item-table"  style="text-align: center;">100.00</td>
+					<td id="item-table"  style="text-align: center;">5</td>
+					<td id="item-table"  style="text-align: center;">500.00 </td>
+				</tr>
+				
+				<tr id="item-table" >
+					<td id="item-table" style="text-align: center;">item2</td>
+					<td id="item-table"  style="text-align: center;">120.00</td>
+					<td id="item-table"  style="text-align: center;">1</td>
+					<td id="item-table"  style="text-align: center;">120.00 </td>
+				</tr>
+				
+				<tr id="item-table" >
+					<td id="item-table" style="text-align: center;">item3</td>
+					<td id="item-table"  style="text-align: center;">130.00</td>
+					<td id="item-table"  style="text-align: center;">3</td>
+					<td id="item-table"  style="text-align: center;">390.00 </td>
+				</tr>
+				
+				<tr id="item-table" >
+					<td id="item-table" style="text-align: center;">item4</td>
+					<td id="item-table"  style="text-align: center;">100.00</td>
+					<td id="item-table"  style="text-align: center;">5</td>
+					<td id="item-table"  style="text-align: center;">500.00 </td>
+				</tr>
+				
+				<tr id="item-table" >
+					<td id="item-table" style="text-align: center;">item5</td>
+					<td id="item-table"  style="text-align: center;">120.00</td>
+					<td id="item-table"  style="text-align: center;">1</td>
+					<td id="item-table"  style="text-align: center;">120.00 </td>
+				</tr>
+				
+				<tr id="item-table" >
+					<td id="item-table" style="text-align: center;">item6</td>
+					<td id="item-table"  style="text-align: center;">130.00</td>
+					<td id="item-table"  style="text-align: center;">3</td>
+					<td id="item-table"  style="text-align: center;">390.00 </td>
+				</tr>
+				
+				<tr id="item-table" >
+					<td id="item-table" style="text-align: center;">item7</td>
+					<td id="item-table"  style="text-align: center;">100.00</td>
+					<td id="item-table"  style="text-align: center;">5</td>
+					<td id="item-table"  style="text-align: center;">500.00 </td>
+				</tr>
+				
+				<tr id="item-table" >
+					<td id="item-table" style="text-align: center;">item8</td>
+					<td id="item-table"  style="text-align: center;">120.00</td>
+					<td id="item-table"  style="text-align: center;">1</td>
+					<td id="item-table"  style="text-align: center;">120.00 </td>
+				</tr>
+				
+				<tr id="item-table" >
+					<td id="item-table" style="text-align: center;">item9</td>
+					<td id="item-table"  style="text-align: center;">130.00</td>
+					<td id="item-table"  style="text-align: center;">3</td>
+					<td id="item-table"  style="text-align: center;">390.00 </td>
+				</tr>
+				
+			</table>
+		</div>
+		<div id="total-panel">
+			<div id="l-total">
+				<p style="font-weight: bold; font-size: 15px;">Invoice Terms</p>
+				<p style="font-size: 15px;">Company.com/terms</p>
+			</div>
+			<div id="r-total" style="float: right;">
+				<table>
+					<tr>
+						<th style="padding-left:20px;">Sub total</th>
+						<th style="text-align:right;"> $ 3030 USD</th>
+					</tr>
+					<tr>
+						<th style="padding-left:20px;">Tax:</th>
+						<th style="text-align:right;">$ 32.5 USD</th>
+					</tr>
+					<tr>
+						<th style="padding-left:20px; border-bottom-left-radius:5px 5px; border-top-left-radius:5px 5px;">Total</th>
+						<th style="border-bottom-right-radius:5px 5px;border-top-right-radius:5px 5px; text-align:right;">$ 3062.5 USD</th>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>

@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<style>
+		@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+		body {
+			font-family: 'Roboto', sans-serif;
+		}
+
+		#container {
+			max-width: 900px;
+			margin: auto;
+		}
+
+		#header {
+			margin-top: 20px;
+			color: white;
+			height: 100px;
+		}
+
+		p {
+			color: black;
+			margin: 10px 0px;
+		}
+
+		#invoice-items {
+			margin-top: 200px;
+		}
+
+		table {
+			border-collapse: collapse;
+			width: 100%;
+		}
+
+		td,
+		th {
+			text-align: left;
+			padding: 8px;
+		}
+
+		td#item-table {
+			/* border: 1px solid #dddddd; */
+			text-align: left;
+			padding: 8px;
+			background-color: #f7f7f7;
+		}
+
+		th#item-table-header {
+			color: white;
+			background-color: #f7c74a;
+			height: 35px;
+		}
+
+		tr#item-table:nth-child(even) {
+			background-color: #dddddd;
+		}
+
+
+		#total-panel {
+			margin-top: 200px;
+			display: flex;
+			justify-content: space-between;
+		}
+
+		#l-total,
+		#r-total {
+			width: 30%;
+		}
+
+		#sub-total {
+			display: flex;
+			justify-content: space-between;
+		}
+
+		#sub-total-total {
+			display: flex;
+			justify-content: space-between;
+			background-color: #f7c74a;
+			color: white;
+		}
+	</style>
+</head>
+
+<body>
+	<div id="container">
+		<div id="header">
+			<div style="width: 300px; float: left;">
+				<svg version="1.1" id="Layer_1" width="50px" height="50px" xmlns="http://www.w3.org/2000/svg"
+					xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 509.287 509.287" xml:space="preserve">
+					<circle style="fill:#FBD303;" cx="254.644" cy="254.644" r="254.644" />
+					<path style="fill:#FCFCFD;" d="M63.068,338.734v42.384c0,7.46,5.764,13.224,13.224,13.224h356.705
+	c7.46,0,13.224-5.764,13.224-13.224v-42.384H63.068z" />
+					<path style="fill:#646B79;" d="M446.22,129.187c0-7.46-5.764-13.224-13.224-13.224H76.291c-7.46,0-13.224,5.764-13.224,13.224
+	v209.547H446.22V129.187z" />
+					<rect x="82.395" y="133.595" style="fill:#6EB1E1;" width="344.837" height="187.507" />
+					<rect x="213.616" y="394.342" style="fill:#646B79;" width="82.395" height="46.792" />
+					<path style="fill:#F1F3F7;" d="M307.878,441.134H201.409c-12.546,0-22.379,10.172-22.379,22.379h151.566
+	C330.596,450.967,320.424,441.134,307.878,441.134z" />
+					<rect x="135.968" y="45.775" style="fill:#FCFCFD;" width="237.351" height="275.327" />
+					<rect x="164.111" y="73.579" style="fill:#71D456;" width="91.55" height="12.207" />
+					<g>
+						<rect x="164.111" y="107.486" style="fill:#DEDEDF;" width="180.726" height="12.207" />
+						<rect x="164.111" y="141.732" style="fill:#DEDEDF;" width="180.726" height="12.207" />
+						<rect x="239.724" y="175.979" style="fill:#DEDEDF;" width="105.452" height="12.207" />
+						<rect x="239.724" y="210.225" style="fill:#DEDEDF;" width="105.452" height="12.207" />
+						<rect x="239.724" y="244.132" style="fill:#DEDEDF;" width="105.452" height="12.207" />
+						<rect x="239.724" y="278.379" style="fill:#DEDEDF;" width="105.452" height="12.207" />
+					</g>
+					<path style="fill:#FBD303;" d="M221.075,252.27c0-14.58-11.868-26.448-26.448-26.448c-6.103,0-11.528-5.086-11.528-11.528
+	c0-6.103,5.086-11.528,11.528-11.528c3.052,0,6.103,1.356,8.138,3.73c2.713,3.052,7.799,3.052,10.85,0.339
+	c3.052-2.713,3.052-7.799,0.339-10.85c-3.391-3.391-7.46-5.764-11.868-7.121v-5.425c0-4.069-3.391-7.46-7.46-7.46
+	s-7.46,3.391-7.46,7.46v5.425c-10.85,3.391-18.988,13.563-18.988,25.43c0,14.58,11.868,26.448,26.448,26.448
+	c6.103,0,11.528,5.086,11.528,11.528s-5.086,11.528-11.528,11.528c-3.052,0-6.103-1.356-8.138-3.73
+	c-2.713-3.052-7.799-3.052-10.85-0.339c-3.052,2.713-3.052,7.799-0.339,10.85c3.391,3.391,7.46,5.764,11.868,7.121v5.425
+	c0,4.069,3.391,7.46,7.46,7.46s7.46-3.391,7.46-7.46v-5.425C212.938,274.31,221.075,264.138,221.075,252.27z" />
+					<circle style="fill:#DEDEDF;" cx="254.644" cy="365.86" r="8.816" />
+				</svg>
+				<span style="color:#FBD303; font-size: 50px; font-weight: bold; text-align: left; margin-left: 3px;">INVOICE</span>
+			</div>
+			<div style="width: 150px; float: left; margin-left: 50px; color: #dddddd;">
+				<p style="color: #dddddd;">Super Demo. Co</p>
+				<p style="color: #dddddd;">superdemo.com</p>
+			</div>
+			<div style="width: 250px; float: right;">
+				<p style="color: #dddddd;">123 Mill St</p>
+				<p style="color: #dddddd;">Main AK, 213546</p>
+				<p style="color: #dddddd;">United States</p>
+			</div>
+
+		</div>
+		<div style="width: 100%;">
+			<div style="width: 40%; float: left; margin-top: 50px;">
+				<p style="font-weight: bold;">Invoice Issued to:</p>
+				<p style="color: rgb(66, 172, 253); margin-top: 20px;">Steve Rogers</p>
+				<p >steve.rogers@example.com</p>
+			</div>
+			<div style="width: 40%; float: right; margin-top: 50px; padding: 20px 30px; border-radius: 30px; background-color: #6EB1E1;">
+				<div style="width: 50%; float: left;">
+					<p style="color: white; ">Invoice Number</p>
+					<p style="color: white; ">Invoice Date </p>
+					<p style="color: white; ">Balance Due</p>
+				</div>
+				<div style="width: 50%; float: right; text-align: right;">
+					<p style="color: white; ">0525</p>
+					<p style="color: white; ">23-Aug-2023 </p>
+					<p style="color: white; ">$10,8000</p>
+				</div>
+			</div>
+		</div>
+		<div id="invoice-items">
+			<table>
+				<tr id="item-table-header">
+					<th id="item-table-header" style="text-align: center; border-top-left-radius:20px 20px;">Product
+					</th>
+					<th id="item-table-header" style="text-align: center;">Price ($)</th>
+					<th id="item-table-header" style="text-align: center;">Quantity</th>
+					<th id="item-table-header" style="text-align: center; border-top-right-radius:20px 20px;">Amount
+					</th>
+				</tr>
+				{% for item in items %}
+				<tr id="item-table">
+					<td id="item-table" style="text-align: center;">{{ item.name }}</td>
+					<td id="item-table" style="text-align: center;">{{ "{amount:,.2f}".format(amount=item.price) }}</td>
+					<td id="item-table" style="text-align: center;">{{ item.quantity }}</td>
+					<td id="item-table" style="text-align: center;">{{ "{amount:,.2f}".format(amount=item.price *
+						item.quantity) }} {{ currency }}</td>
+				</tr>
+				{% endfor %}
+			</table>
+		</div>
+		<div id="total-panel">
+			<div id="l-total">
+				<p style="font-weight: bold;">Invoice Terms</p>
+				<p>Company.com/terms</p>
+			</div>
+			<div id="r-total" style="float: right;">
+				<table>
+					<tr>
+						<td>Sub total</td>
+						<td> $ {{ sub_total }} USD</td>
+					</tr>
+					<tr>
+						<td>Tax:</td>
+						<td>$ {{tax}} USD</td>
+					</tr>
+					<tr>
+						<th id="item-table-header">Total</th>
+						<th id="item-table-header">$ {{total}} USD</th>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>
